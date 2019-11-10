@@ -1,6 +1,23 @@
 import re
 
 def recite(start_verse, end_verse):
+
+
+    Dictionary2D = {
+    12:["twelfth", "twelve"],
+    11:["eleventh", "eleven"],
+    10:["tenth", "ten"],
+    9:["ninth", "nine"],
+    8:["eigth", "eigth"],
+    7:["seventh", "seven"],
+    6:["sixth", "six"],
+    5:["fifth", "five"],
+    4:["fourth", "four"],
+    3:["third", "three","French Hens, "],
+    2:["second", "two","Turtle Doves, "],
+    1:["first", "and a", "Partridge in a Pear Tree."]
+    }
+
     # "On the twelfth day of Christmas my true love gave to me: "
     #       "twelve Drummers Drumming, "
     #        "eleven Pipers Piping, "
@@ -15,7 +32,6 @@ def recite(start_verse, end_verse):
     #        "two Turtle Doves, "
     #        "and a Partridge in a Pear Tree."
     song = {}
-    song[0] = 'On the variable day of Christmas my true love gave to me: '
     song[1] = 'Partridge in a Pear Tree'
     song[2] = 'Turtle Doves'
     song[3] = 'French Hens'
@@ -30,7 +46,6 @@ def recite(start_verse, end_verse):
     song[12] = 'Drummers Drumming'
 
     numbers = {}
-    numbers[0] = ''
     numbers[1] = 'a'
     numbers[2] = 'two'
     numbers[3] = 'three'
@@ -45,7 +60,6 @@ def recite(start_verse, end_verse):
     numbers[12] = 'twelve'
 
     nth = {}
-    nth[0] = ''
     nth[1] = 'first'
     nth[2] = 'second'
     nth[3] = 'third'
@@ -59,11 +73,19 @@ def recite(start_verse, end_verse):
     nth[11] = 'eleventh'
     nth[12] = 'twelfth'
 
-    for k, v in song.items():
-        if k == end_verse:
-            break
-        elif k == 0:
-            v = re.sub("variable", nth[end_verse], v)
-        print(numbers[k] +" "+ v)
+
+    print("On the " + nth[end_verse] + " day of Christmas my true love gave to me: ")
+
+    for k, v in song.items()[::-1]:
+        if song[k] > 1
+            print(numbers[k] +" "+ v)
+
+
+    if end_verse > 1:
+        end_line = "and"
+        print(end_line + " " + numbers[1] + " " + "Partridge in a Pear Tree")
+    else:
+        print(numbers[1] + " " + "Partridge in a Pear Tree")
+
     print("######")
     pass
