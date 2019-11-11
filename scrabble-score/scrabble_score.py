@@ -1,44 +1,34 @@
-import random
-import operator
-
 def score(word):
-    print("welcome to the letter game challenge")
-    response=input("enter a word:\n")
-    print(format(response)) # prints the word you have entered
-
-    letterpoints = { "E":(1),
-                     "A":(2),
-                     "R":(3),
-                     "I":(4),#values for each number as shown "i" = 4
-                     "O":(5),
-                     "T":(6),
-                     "N":(7),
-                     "S":(8),# values for each number again "s" = 4
-                     "L":(9),
-                     "C":(10),
-                     "U":(11),
-                     "D":(12),
-                     "P":(13),
-                     "M":(14),
-                     "H":(15),
-                     "G":(16),
-                     "B":(17),
-                     "F":(18),
-                     "Y":(19),
-                     "W":(20),
-                     "K":(21),
-                     "V":(22),
-                     "X":(23),
-                     "Z":(24),
-                     "J":(25),
-                     "Q":(26),
+    letterpoints = { "A":(1),
+                     "E":(1),
+                     "I":(1),
+                     "O":(1),
+                     "U":(1),
+                     "L":(1),
+                     "N":(1),
+                     "R":(1),
+                     "S":(1),
+                     "T":(1),
+                     "D":(2),
+                     "G":(2),
+                     "B":(3),
+                     "C":(3),
+                     "M":(3),
+                     "P":(3),
+                     "F":(4),
+                     "H":(4),
+                     "V":(4),
+                     "W":(4),
+                     "Y":(4),
+                     "K":(5),
+                     "J":(8),
+                     "X":(8),
+                     "Q":(10),
+                     "Z":(10),
     }
-
-    response = response.upper()
+    word = word.upper()
     total = 0
-    for letter in response:
+    for letter in word:
         total += letterpoints.get(letter)
-
-    print('your score is {}'.format(total))
-
-    pass
+    return(total)
+pass
