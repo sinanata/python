@@ -1,2 +1,4 @@
+import string
 def is_pangram(sentence):
-    pass
+    alphabet = set(string.ascii_lowercase)
+    return set(sentence.lower()) >= alphabet
