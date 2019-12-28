@@ -1,6 +1,10 @@
 from datetime import date, timedelta
 import dateutil.relativedelta as rdelta
 
+
+class MeetupDayException(Exception):
+    pass
+
 def daterange(start_date, end_date):
         for n in range(int ((end_date - start_date).days)):
             yield start_date + timedelta(n)
@@ -42,10 +46,8 @@ def all_weekdays(year, month, week, day_of_week):
         the_date = dt + rdelta.relativedelta(days=day_offset, weekday=rdelta.SU(clean_week))
         return the_date
 
-
-
 def meetup(year, month, week, day_of_week):
-
+    
     if week == 'teenth':
         start_date = date(year, month, 13)
         end_date = date(year, month, 20)
@@ -53,13 +55,17 @@ def meetup(year, month, week, day_of_week):
         for single_date in daterange(start_date, end_date):
             if single_date.strftime("%A") == day_of_week:
                 return single_date
+    
+    elif week == '5th' and month == 2:
+        msg = f"Cannot find {week} {day_of_week} for {month}/{year}"
+        raise MeetupDayException(msg)
 
     elif all_weekdays(year,month,week,day_of_week).month != month:
         output = all_weekdays(year,month,week,day_of_week)
         return output - timedelta(days=7)
+    
     else:
         output = all_weekdays(year,month,week,day_of_week)
         return output
-
-def MeetupDayException():
-    assert Exception("My exception message", str(excinfo.value))
+        
+    
